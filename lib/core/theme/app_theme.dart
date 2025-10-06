@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppTheme {
   static ThemeData light = ThemeData(
+    useMaterial3: false,
     primaryColor: AppColors.blueberry,
     colorScheme: ColorScheme.fromSeed(seedColor: AppColors.blueberry),
     scaffoldBackgroundColor: AppColors.iceBlue,
@@ -40,6 +41,17 @@ abstract class AppTheme {
         ),
         side: BorderSide(color: AppColors.blueberry, width: 1),
       ),
+    ),
+    bottomAppBarTheme: BottomAppBarThemeData(
+      color: AppColors.blueberry,
+      shape: CircularNotchedRectangle(),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      elevation: 0,
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Colors.transparent,
+      selectedItemColor: AppColors.iceBlue,
+      unselectedItemColor: AppColors.iceBlue,
     ),
   );
 
