@@ -1,13 +1,12 @@
+import 'package:evently_app/core/extensions/context_extension.dart';
 import 'package:evently_app/core/resoureses/app_images.dart';
 import 'package:evently_app/core/route/router_name.dart';
-import 'package:evently_app/core/theme/app_colors.dart';
 import 'package:evently_app/core/utils/validators/validators.dart';
 import 'package:evently_app/core/widgets/custom_text_button.dart';
 import 'package:evently_app/core/widgets/cutom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -127,11 +126,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     Text(
                       "Already Have Account ?  ",
-                      style: GoogleFonts.inter(
-                        color: AppColors.black,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: context.textTheme.bodyMedium,
                     ),
                     CustomTextButton(
                       text: "Login",

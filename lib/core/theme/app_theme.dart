@@ -7,7 +7,12 @@ abstract class AppTheme {
   static ThemeData light = ThemeData(
     useMaterial3: false,
     primaryColor: AppColors.blueberry,
-    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.blueberry),
+    colorScheme: ColorScheme.fromSeed(
+      brightness: Brightness.light,
+      seedColor: AppColors.blueberry,
+      onPrimary: AppColors.blueberry,
+      secondary: AppColors.iceBlue,
+    ),
     scaffoldBackgroundColor: AppColors.iceBlue,
     appBarTheme: AppBarTheme(
       centerTitle: true,
@@ -18,6 +23,17 @@ abstract class AppTheme {
       backgroundColor: AppColors.iceBlue,
       elevation: 0,
       iconTheme: IconThemeData(color: AppColors.blueberry),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      labelStyle: TextStyle(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w500,
+        color: AppColors.gray,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16.r),
+        borderSide: BorderSide(width: 1.w, color: AppColors.gray),
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -52,6 +68,30 @@ abstract class AppTheme {
       backgroundColor: Colors.transparent,
       selectedItemColor: AppColors.iceBlue,
       unselectedItemColor: AppColors.iceBlue,
+    ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      elevation: 2.0.h,
+      backgroundColor: AppColors.blueberry,
+      shape: StadiumBorder(
+        side: BorderSide(width: 4.w, color: AppColors.iceBlue),
+      ),
+    ),
+    textTheme: TextTheme(
+      headlineMedium: GoogleFonts.inter(
+        fontSize: 14.sp,
+        color: AppColors.iceBlue,
+        fontWeight: FontWeight.w500,
+      ),
+      headlineLarge: GoogleFonts.inter(
+        fontSize: 24.sp,
+        color: AppColors.iceBlue,
+        fontWeight: FontWeight.bold,
+      ),
+      bodyMedium: GoogleFonts.inter(
+        color: AppColors.black,
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w500,
+      ),
     ),
   );
 

@@ -1,11 +1,8 @@
-import 'package:evently_app/core/extensions/context_extension.dart';
-import 'package:evently_app/core/theme/app_colors.dart';
 import 'package:evently_app/features/main_layout/tabs/favourite_tab_screen.dart';
 import 'package:evently_app/features/main_layout/tabs/home_tab_screen.dart';
 import 'package:evently_app/features/main_layout/tabs/map_tab_screen.dart';
 import 'package:evently_app/features/main_layout/tabs/profile_tab_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -35,15 +32,8 @@ class _MainLayoutState extends State<MainLayout> {
     );
   }
 
-  FloatingActionButton get _buildFap => FloatingActionButton(
-    onPressed: () {},
-    elevation: 2.0.h,
-    backgroundColor: context.primaryColor,
-    shape: StadiumBorder(
-      side: BorderSide(width: 4.w, color: AppColors.iceBlue),
-    ),
-    child: Icon(Icons.add),
-  );
+  FloatingActionButton get _buildFap =>
+      FloatingActionButton(onPressed: () {}, child: Icon(Icons.add));
   BottomAppBar get _buildBottomAppBar => BottomAppBar(
     notchMargin: 12,
     child: BottomNavigationBar(

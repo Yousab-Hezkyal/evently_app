@@ -1,4 +1,3 @@
-import 'package:evently_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,15 +34,6 @@ class CutomFormField extends StatelessWidget {
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,
           label: Text(label),
-          labelStyle: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w500,
-            color: AppColors.gray,
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16.r),
-            borderSide: BorderSide(width: 1.w, color: AppColors.gray),
-          ),
         ),
       ),
     );
