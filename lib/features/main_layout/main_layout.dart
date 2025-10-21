@@ -1,8 +1,10 @@
+import 'package:evently_app/core/route/router_name.dart';
 import 'package:evently_app/features/main_layout/tabs/favourite_tab_screen.dart';
 import 'package:evently_app/features/main_layout/tabs/home_tab_screen.dart';
 import 'package:evently_app/features/main_layout/tabs/map_tab_screen.dart';
 import 'package:evently_app/features/main_layout/tabs/profile_tab_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -32,8 +34,10 @@ class _MainLayoutState extends State<MainLayout> {
     );
   }
 
-  FloatingActionButton get _buildFap =>
-      FloatingActionButton(onPressed: () {}, child: Icon(Icons.add));
+  FloatingActionButton get _buildFap => FloatingActionButton(
+    onPressed: () => _onTapFloatingActionButton(),
+    child: Icon(Icons.add),
+  );
   BottomAppBar get _buildBottomAppBar => BottomAppBar(
     notchMargin: 12,
     child: BottomNavigationBar(
@@ -70,5 +74,9 @@ class _MainLayoutState extends State<MainLayout> {
   void _onTapNavigationBar(int index) {
     if (index == 2) return;
     setState(() => currentIndex = index);
+  }
+
+  void _onTapFloatingActionButton() {
+    context.push(RouterName.addEvent);
   }
 }

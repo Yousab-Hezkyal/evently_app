@@ -1,4 +1,5 @@
 import 'package:evently_app/core/route/router_name.dart';
+import 'package:evently_app/features/add_event/add_event.dart';
 import 'package:evently_app/features/auth/forget_pass/forget_pass_screen.dart';
 import 'package:evently_app/features/auth/login/login_screen.dart';
 import 'package:evently_app/features/auth/register/register_screen.dart';
@@ -24,6 +25,10 @@ abstract class AppRouter {
       GoRoute(
         path: RouterName.mainLayout,
         builder: (context, state) => const MainLayout(),
+      ),
+      GoRoute(
+        path: RouterName.addEvent,
+        builder: (context, state) => const AddEvent(),
       ),
     ],
   );

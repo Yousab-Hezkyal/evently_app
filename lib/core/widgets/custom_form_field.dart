@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CutomFormField extends StatelessWidget {
-  const CutomFormField({
+class CustomFormField extends StatelessWidget {
+  const CustomFormField({
     super.key,
-    required this.label,
+    this.labelText,
     this.isScure = false,
     this.prefixIcon,
     this.suffixIcon,
     this.keyboardType = TextInputType.text,
     this.validator,
     required this.controller,
+    this.hintText,
+    this.maxLines = 1,
   });
-  final String label;
+  final String? labelText;
+  final String? hintText;
   final bool isScure;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final TextInputType keyboardType;
   final String? Function(String? input)? validator;
   final TextEditingController controller;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +33,12 @@ class CutomFormField extends StatelessWidget {
         validator: validator,
         controller: controller,
         obscureText: isScure,
-        maxLines: 1,
+        maxLines: maxLines,
         decoration: InputDecoration(
           prefixIcon: prefixIcon,
           suffixIcon: suffixIcon,
-          label: Text(label),
+          hintText: hintText,
+          labelText: labelText,
         ),
       ),
     );
