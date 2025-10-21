@@ -9,18 +9,21 @@ class ForgetPassScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Forget Password")),
-      body: Column(
-        children: [
-          Image.asset(AppImages.resetImage),
-          Container(
-            padding: REdgeInsets.symmetric(vertical: 24.h),
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {},
-              child: Text("Reset Password"),
+      body: Padding(
+        padding: REdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          children: [
+            Image.asset(AppImages.resetImage),
+            Container(
+              padding: REdgeInsets.symmetric(vertical: 24.h),
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("Reset Password"),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

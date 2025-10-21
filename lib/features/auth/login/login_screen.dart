@@ -1,10 +1,9 @@
 import 'package:evently_app/core/extensions/context_extension.dart';
 import 'package:evently_app/core/resoureses/app_images.dart';
 import 'package:evently_app/core/route/router_name.dart';
-import 'package:evently_app/core/theme/app_colors.dart';
 import 'package:evently_app/core/utils/validators/validators.dart';
 import 'package:evently_app/core/widgets/custom_text_button.dart';
-import 'package:evently_app/core/widgets/cutom_form_field.dart';
+import 'package:evently_app/core/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -56,17 +55,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: REdgeInsets.only(top: 47, bottom: 24),
                   child: Image.asset(AppImages.eventlyLogo),
                 ),
-                CutomFormField(
+                CustomFormField(
                   controller: _emailController,
-                  label: "Email",
+                  labelText: "Email",
                   validator: (input) => Validators.validateEmail(input),
                   prefixIcon: Icon(Icons.email),
                   keyboardType: TextInputType.emailAddress,
                 ),
-                CutomFormField(
+                CustomFormField(
                   controller: _passwordController,
                   validator: (input) => Validators.validatePassword(input),
-                  label: "Password",
+                  labelText: "Password",
                   isScure: securePass,
                   prefixIcon: Icon(Icons.lock),
                   suffixIcon: IconButton(
@@ -94,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      _register();
+                      _login();
                     },
                     child: Text("Login"),
                   ),
@@ -104,11 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Text(
                       "Don’t Have Account ?  ",
-                      style: GoogleFonts.inter(
-                        color: AppColors.black,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: context.textTheme.bodyMedium,
                     ),
                     CustomTextButton(
                       text: " Create Account",
@@ -169,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void _register() {
+  void _login() {
     if (!_formKey.currentState!.validate()) {
       return;
     } else {

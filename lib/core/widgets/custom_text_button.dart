@@ -41,6 +41,7 @@ class _CustomTextButtonState extends State<CustomTextButton> {
         style: GoogleFonts.inter(
           color: _isPressed ? AppColors.pressedButton : context.primaryColor,
           fontStyle: FontStyle.italic,
+          fontWeight: FontWeight.bold,
           fontSize: 16.sp,
         ),
       ),

@@ -5,6 +5,10 @@ extension ContextExtension on BuildContext {
 
   TextTheme get textTheme => Theme.of(this).textTheme;
   Color get primaryColor => Theme.of(this).primaryColor;
+  Color get onPrimaryColor => Theme.of(this).colorScheme.onPrimary;
+  Color get secondaryColor => Theme.of(this).colorScheme.secondary;
+
+  bool get isLightMode => Theme.of(this).brightness == Brightness.light;
 
   double get height => MediaQuery.sizeOf(this).height;
   double get width => MediaQuery.sizeOf(this).width;
