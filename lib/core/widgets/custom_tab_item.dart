@@ -9,7 +9,7 @@ class CustomTabItem extends StatelessWidget {
     super.key,
     required this.categoryModel,
     required this.isSelected,
-    this.isTabBar = true,
+    required this.isTabBar,
   });
   final CategoryModel categoryModel;
   final bool isSelected;

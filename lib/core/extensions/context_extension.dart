@@ -16,5 +16,3 @@ extension ContextExtension on BuildContext {
   double dynamicHeight(double val) => height * val;
   double dynamicWidth(double val) => width * val;
 }
-
-class Themedata {}

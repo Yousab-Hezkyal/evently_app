@@ -14,6 +14,7 @@ abstract class AppTheme {
       secondary: AppColors.iceBlue,
     ),
     scaffoldBackgroundColor: AppColors.iceBlue,
+    iconTheme: IconThemeData(color: AppColors.black, size: 24.sp),
     appBarTheme: AppBarTheme(
       centerTitle: true,
       titleTextStyle: GoogleFonts.inter(
@@ -25,7 +26,13 @@ abstract class AppTheme {
       iconTheme: IconThemeData(color: AppColors.blueberry),
     ),
     inputDecorationTheme: InputDecorationTheme(
+      iconColor: AppColors.gray,
       labelStyle: TextStyle(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w500,
+        color: AppColors.gray,
+      ),
+      hintStyle: TextStyle(
         fontSize: 16.sp,
         fontWeight: FontWeight.w500,
         color: AppColors.gray,
@@ -75,6 +82,11 @@ abstract class AppTheme {
       shape: StadiumBorder(
         side: BorderSide(width: 4.w, color: AppColors.iceBlue),
       ),
+    ),
+    cardTheme: CardThemeData(
+      color: AppColors.iceBlue,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+      elevation: 5,
     ),
     textTheme: TextTheme(
       headlineMedium: GoogleFonts.inter(

@@ -1,4 +1,7 @@
 import 'package:evently_app/core/extensions/context_extension.dart';
+import 'package:evently_app/core/models/category_model.dart';
+import 'package:evently_app/core/models/event_model.dart';
+import 'package:evently_app/core/widgets/custom_event_card.dart';
 import 'package:evently_app/core/widgets/custom_tab_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,6 +19,31 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
 
   @override
   Widget build(BuildContext context) {
+    return Column(
+      children: [
+        _buildHomeBar,
+        SizedBox(height: 16.h),
+        Expanded(
+          child: ListView.separated(
+            padding: REdgeInsets.only(right: 16, left: 16, top: 0, bottom: 100),
+            itemBuilder: (context, index) => CustomEventCard(
+              eventModel: EventModel(
+                category: CategoryModel.categories[3],
+                title: 'Meeting for Updating The Development Method ',
+                description: 'Meeting for Updating The D evelopment Method ',
+                dateTime: DateTime.now(),
+                time: TimeOfDay.now(),
+              ),
+            ),
+            separatorBuilder: (context, index) => SizedBox(height: 12.h),
+            itemCount: 15,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget get _buildHomeBar {
     return Container(
       padding: REdgeInsets.all(16),
       width: double.infinity,

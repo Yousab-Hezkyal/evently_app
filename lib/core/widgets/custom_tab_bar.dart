@@ -3,8 +3,13 @@ import 'package:evently_app/core/widgets/custom_tab_item.dart';
 import 'package:flutter/material.dart';
 
 class CustomTabBar extends StatefulWidget {
-  const CustomTabBar({super.key, required this.isAll});
+  const CustomTabBar({
+    super.key,
+    required this.isAll,
+    this.onCategorySeclected,
+  });
   final bool isAll;
+  final void Function(CategoryModel category)? onCategorySeclected;
 
   @override
   State<CustomTabBar> createState() => _CustomTabBarState();
@@ -32,6 +37,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
         onTap: (index) {
           setState(() {
             selectedIndex = index;
+            widget.onCategorySeclected?.call(categories[index]);
           });
         },
         tabs: categories
@@ -39,6 +45,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
               (categoryModel) => CustomTabItem(
                 categoryModel: categoryModel,
                 isSelected: selectedIndex == categories.indexOf(categoryModel),
+                isTabBar: widget.isAll,
               ),
             )
             .toList(),
