@@ -20,11 +20,11 @@ class _CustomTabBarState extends State<CustomTabBar> {
   late List<CategoryModel> categories;
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     categories = widget.isAll
-        ? CategoryModel.categories
-        : CategoryModel.categories.skip(1).toList();
+        ? CategoryModel.categories(context)
+        : CategoryModel.categories(context).skip(1).toList();
   }
 
   @override

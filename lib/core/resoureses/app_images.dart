@@ -3,6 +3,7 @@ abstract class AppImages {
   static final String eventlyLogo = "${base}evently_logo.png";
   static final String googleLogo = "${base}google_sign.png";
   static final String resetImage = "${base}reset_pass.png";
+  static final String routeImage = "${base}route_image.png";
   // categories images light
   static final String sportsLight = "${base}sport_image.png";
   static final String bithdatyLight = "${base}birthday_image.png";

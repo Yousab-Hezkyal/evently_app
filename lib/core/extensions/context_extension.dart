@@ -1,7 +1,10 @@
+import 'package:evently_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 extension ContextExtension on BuildContext {
   T? arg<T>() => ModalRoute.of(this)?.settings.arguments as T?;
+
+  AppLocalizations? get l10n => AppLocalizations.of(this);
 
   TextTheme get textTheme => Theme.of(this).textTheme;
   Color get primaryColor => Theme.of(this).primaryColor;

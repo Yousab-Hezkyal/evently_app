@@ -28,7 +28,7 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
             padding: REdgeInsets.only(right: 16, left: 16, top: 0, bottom: 100),
             itemBuilder: (context, index) => CustomEventCard(
               eventModel: EventModel(
-                category: CategoryModel.categories[3],
+                category: CategoryModel.categories(context)[3],
                 title: 'Meeting for Updating The Development Method ',
                 description: 'Meeting for Updating The D evelopment Method ',
                 dateTime: DateTime.now(),
@@ -64,7 +64,7 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Welcome Back ✨",
+                      "${context.l10n!.welcome} ✨",
                       style: context.textTheme.headlineMedium,
                     ),
                     Text("John Safwat", style: context.textTheme.headlineLarge),

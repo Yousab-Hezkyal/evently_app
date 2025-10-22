@@ -22,6 +22,7 @@ class _CustomEventCardState extends State<CustomEventCard> {
       height: 205.h,
       width: double.infinity,
       decoration: BoxDecoration(
+        border: BoxBorder.all(color: context.primaryColor),
         image: DecorationImage(
           image: AssetImage(
             context.isLightMode
