@@ -17,7 +17,7 @@ class AddEvent extends StatefulWidget {
 class _AddEventState extends State<AddEvent> {
   late TextEditingController _tittleController;
   late TextEditingController _descriptionController;
-  late CategoryModel selectCateogry = CategoryModel.categories[1];
+  late CategoryModel selectCateogry = CategoryModel.categories(context)[1];
 
   @override
   void initState() {
@@ -36,7 +36,7 @@ class _AddEventState extends State<AddEvent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Create Event')),
+      appBar: AppBar(title: Text(context.l10n!.create_event)),
       body: Padding(
         padding: REdgeInsets.only(right: 16.0, left: 16, bottom: 24),
         child: SingleChildScrollView(
@@ -61,21 +61,24 @@ class _AddEventState extends State<AddEvent> {
                   },
                 ),
               ),
-              Text("Tittle", style: context.textTheme.bodyMedium),
+              Text(context.l10n!.tittle, style: context.textTheme.bodyMedium),
               Padding(
                 padding: REdgeInsets.symmetric(vertical: 8),
                 child: CustomFormField(
                   prefixIcon: Icon(Icons.edit_note),
-                  hintText: "Event Tittle",
+                  hintText: context.l10n!.event_tittle,
                   controller: _tittleController,
                 ),
               ),
-              Text("Description", style: context.textTheme.bodyMedium),
+              Text(
+                context.l10n!.description,
+                style: context.textTheme.bodyMedium,
+              ),
               Padding(
                 padding: REdgeInsets.symmetric(vertical: 8),
                 child: CustomFormField(
                   maxLines: 5,
-                  hintText: "Event Description",
+                  hintText: context.l10n!.event_description,
                   controller: _descriptionController,
                 ),
               ),
@@ -83,10 +86,13 @@ class _AddEventState extends State<AddEvent> {
                 children: [
                   Icon(Icons.calendar_month),
                   SizedBox(width: 10.w),
-                  Text("Event Date", style: context.textTheme.bodyMedium),
+                  Text(
+                    context.l10n!.event_date,
+                    style: context.textTheme.bodyMedium,
+                  ),
                   Spacer(),
                   CustomTextButton(
-                    text: "Choose Date",
+                    text: context.l10n!.choose_date,
                     onTap: () {
                       showDatePicker(
                         context: context,
@@ -102,10 +108,13 @@ class _AddEventState extends State<AddEvent> {
                 children: [
                   Icon(Icons.access_time_outlined),
                   SizedBox(width: 10.w),
-                  Text("Event Time", style: context.textTheme.bodyMedium),
+                  Text(
+                    context.l10n!.event_time,
+                    style: context.textTheme.bodyMedium,
+                  ),
                   Spacer(),
                   CustomTextButton(
-                    text: "Choose Time",
+                    text: context.l10n!.choose_time,
                     onTap: () {
                       showTimePicker(
                         context: context,
@@ -117,7 +126,10 @@ class _AddEventState extends State<AddEvent> {
               ),
               Padding(
                 padding: REdgeInsets.only(top: 16, bottom: 8),
-                child: Text("Location", style: context.textTheme.bodyMedium),
+                child: Text(
+                  context.l10n!.location,
+                  style: context.textTheme.bodyMedium,
+                ),
               ),
               OutlinedButton(
                 onPressed: () {},
@@ -138,7 +150,7 @@ class _AddEventState extends State<AddEvent> {
                       ),
                       SizedBox(width: 8.w),
                       Text(
-                        "Choose Event Location",
+                        context.l10n!.choose_location,
                         style: GoogleFonts.inter(
                           color: context.primaryColor,
                           fontSize: 16.sp,
@@ -155,7 +167,10 @@ class _AddEventState extends State<AddEvent> {
                 ),
               ),
               SizedBox(height: 16.h),
-              ElevatedButton(onPressed: () {}, child: Text("Add Event")),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(context.l10n!.add_event),
+              ),
             ],
           ),
         ),

@@ -57,15 +57,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 CustomFormField(
                   controller: _emailController,
-                  labelText: "Email",
-                  validator: (input) => Validators.validateEmail(input),
+                  labelText: context.l10n!.email,
+                  validator: (input) =>
+                      Validators.validateEmail(input, context),
                   prefixIcon: Icon(Icons.email),
                   keyboardType: TextInputType.emailAddress,
                 ),
                 CustomFormField(
                   controller: _passwordController,
-                  validator: (input) => Validators.validatePassword(input),
-                  labelText: "Password",
+                  validator: (input) =>
+                      Validators.validatePassword(input, context),
+                  labelText: context.l10n!.password,
                   isScure: securePass,
                   prefixIcon: Icon(Icons.lock),
                   suffixIcon: IconButton(
@@ -82,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: CustomTextButton(
-                    text: "Forget Password?",
+                    text: context.l10n!.forget_pass,
                     onTap: () {
                       context.push(RouterName.forgetPass);
                     },
@@ -95,18 +97,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () {
                       _login();
                     },
-                    child: Text("Login"),
+                    child: Text(context.l10n!.login),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Don’t Have Account ?  ",
+                      context.l10n!.no_have_account,
                       style: context.textTheme.bodyMedium,
                     ),
                     CustomTextButton(
-                      text: " Create Account",
+                      text: context.l10n!.create_account,
                       onTap: () {
                         context.go(RouterName.register);
                       },
@@ -127,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       Text(
-                        "or",
+                        context.l10n!.or,
                         style: GoogleFonts.inter(
                           color: context.primaryColor,
                           fontSize: 16.sp,
@@ -152,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Image.asset(AppImages.googleLogo),
                       SizedBox(width: 10.w),
-                      Text("Login With Google"),
+                      Text(context.l10n!.login_with_google),
                     ],
                   ),
                 ),

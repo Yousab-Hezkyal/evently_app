@@ -1,8 +1,9 @@
+import 'package:evently_app/core/extensions/context_extension.dart';
 import 'package:evently_app/core/route/router_name.dart';
 import 'package:evently_app/features/main_layout/tabs/favourite_tab_screen.dart';
 import 'package:evently_app/features/main_layout/tabs/home_tab_screen.dart';
 import 'package:evently_app/features/main_layout/tabs/map_tab_screen.dart';
-import 'package:evently_app/features/main_layout/tabs/profile_tab_screen.dart';
+import 'package:evently_app/features/main_layout/tabs/profile_tab/presntation/profile_tab_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -46,13 +47,13 @@ class _MainLayoutState extends State<MainLayout> {
       items: [
         BottomNavigationBarItem(
           icon: Icon(currentIndex == 0 ? Icons.home : Icons.home_outlined),
-          label: "Home",
+          label: context.l10n!.home,
         ),
         BottomNavigationBarItem(
           icon: Icon(
             currentIndex == 1 ? Icons.location_on : Icons.location_on_outlined,
           ),
-          label: "Map",
+          label: context.l10n!.map,
         ),
         BottomNavigationBarItem(icon: SizedBox.shrink(), label: ''),
         BottomNavigationBarItem(
@@ -61,11 +62,11 @@ class _MainLayoutState extends State<MainLayout> {
                 ? Icons.favorite_sharp
                 : Icons.favorite_outline_rounded,
           ),
-          label: "favourite",
+          label: context.l10n!.favourite,
         ),
         BottomNavigationBarItem(
           icon: Icon(currentIndex == 4 ? Icons.person : Icons.person_outline),
-          label: "profile",
+          label: context.l10n!.profile,
         ),
       ],
     ),

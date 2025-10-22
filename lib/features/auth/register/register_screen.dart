@@ -63,21 +63,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 CustomFormField(
                   controller: _nameController,
-                  labelText: "Name",
-                  validator: (input) => Validators.validateUsername(input),
+                  labelText: context.l10n!.name,
+                  validator: (input) =>
+                      Validators.validateUsername(input, context),
                   prefixIcon: Icon(Icons.person),
                 ),
                 CustomFormField(
                   controller: _emailController,
-                  labelText: "Email",
-                  validator: (input) => Validators.validateEmail(input),
+                  labelText: context.l10n!.email,
+                  validator: (input) =>
+                      Validators.validateEmail(input, context),
                   prefixIcon: Icon(Icons.email),
                   keyboardType: TextInputType.emailAddress,
                 ),
                 CustomFormField(
                   controller: _passwordController,
-                  validator: (input) => Validators.validatePassword(input),
-                  labelText: "Password",
+                  validator: (input) =>
+                      Validators.validatePassword(input, context),
+                  labelText: context.l10n!.password,
                   isScure: securePass,
                   prefixIcon: Icon(Icons.lock),
                   suffixIcon: IconButton(
@@ -96,8 +99,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   validator: (input) => Validators.validateRePassword(
                     input,
                     _passwordController.text,
+                    context,
                   ),
-                  labelText: "RePassword",
+                  labelText: context.l10n!.re_password,
                   isScure: securePass,
                   prefixIcon: Icon(Icons.lock),
                   suffixIcon: IconButton(
@@ -118,18 +122,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     onPressed: () {
                       _login();
                     },
-                    child: Text("Create Account"),
+                    child: Text(context.l10n!.create_account),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Already Have Account ?  ",
+                      context.l10n!.already_have_account,
                       style: context.textTheme.bodyMedium,
                     ),
                     CustomTextButton(
-                      text: "Login",
+                      text: context.l10n!.login,
                       onTap: () {
                         context.go(RouterName.login);
                       },

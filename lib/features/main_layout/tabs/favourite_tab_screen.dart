@@ -24,7 +24,7 @@ class FavouriteTabScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
                 decoration: InputDecoration(
-                  hintText: 'Search for Event',
+                  hintText: context.l10n!.search_event,
                   hintStyle: GoogleFonts.inter(
                     color: context.primaryColor,
                     fontSize: 14.sp,
@@ -58,7 +58,7 @@ class FavouriteTabScreen extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) => CustomEventCard(
                   eventModel: EventModel(
-                    category: CategoryModel.categories[3],
+                    category: CategoryModel.categories(context)[3],
                     title: 'Meeting for Updating The Development Method ',
                     description:
                         'Meeting for Updating The D evelopment Method ',
